@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		45A8D07923AA75D9006BDED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45A8D07823AA75D9006BDED4 /* Assets.xcassets */; };
 		45A8D07C23AA75D9006BDED4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45A8D07A23AA75D9006BDED4 /* LaunchScreen.storyboard */; };
 		45A8D08723AA75D9006BDED4 /* RxSwift_GCDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8D08623AA75D9006BDED4 /* RxSwift_GCDTests.swift */; };
+		45A8D09723AD2437006BDED4 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8D09623AD2437006BDED4 /* ViewModel.swift */; };
 		66829085EB27801CF380442B /* Pods_RxSwift_GCD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21FF489097A66E187C3E1 /* Pods_RxSwift_GCD.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		45A8D08223AA75D9006BDED4 /* RxSwift-GCDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxSwift-GCDTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A8D08623AA75D9006BDED4 /* RxSwift_GCDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwift_GCDTests.swift; sourceTree = "<group>"; };
 		45A8D08823AA75D9006BDED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45A8D09623AD2437006BDED4 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9E7EFF4391D8382E7C5C5E8B /* Pods-RxSwift-GCDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwift-GCDTests.release.xcconfig"; path = "Target Support Files/Pods-RxSwift-GCDTests/Pods-RxSwift-GCDTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD6B20F316AD180FBD9E7CA1 /* Pods-RxSwift-GCD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwift-GCD.release.xcconfig"; path = "Target Support Files/Pods-RxSwift-GCD/Pods-RxSwift-GCD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,7 +78,6 @@
 				314375B68038545C77249549 /* Pods-RxSwift-GCDTests.debug.xcconfig */,
 				9E7EFF4391D8382E7C5C5E8B /* Pods-RxSwift-GCDTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -110,6 +111,7 @@
 				45A8D07823AA75D9006BDED4 /* Assets.xcassets */,
 				45A8D07A23AA75D9006BDED4 /* LaunchScreen.storyboard */,
 				45A8D07D23AA75D9006BDED4 /* Info.plist */,
+				45A8D09623AD2437006BDED4 /* ViewModel.swift */,
 			);
 			path = "RxSwift-GCD";
 			sourceTree = "<group>";
@@ -320,6 +322,7 @@
 			files = (
 				45A8D07423AA75D6006BDED4 /* ViewController.swift in Sources */,
 				45A8D07023AA75D6006BDED4 /* AppDelegate.swift in Sources */,
+				45A8D09723AD2437006BDED4 /* ViewModel.swift in Sources */,
 				45A8D07223AA75D6006BDED4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
