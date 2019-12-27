@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak private var button: UIButton!
+    private var disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
-    /*
-     ViewModelたてて、非同期処理のダミー作って、indicator処理をメインスレッド、バックグラウンド（qos）、バックグラウンド（queue）それぞれでボタンでは発火するようにして、UIの変化見たい
-     */
+        let viewModel = ViewModel().injection(input: ViewModel.Input(mainTap: button.rx.tap.asObservable()))
+
+        viewModel.finishedLongAction.drive(onNext: { _ in
+            print("did tap")
+        })
+            .disposed(by: disposeBag)
+    }
 
 }
 

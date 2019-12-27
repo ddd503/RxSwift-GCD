@@ -107,11 +107,11 @@
 				45A8D06F23AA75D6006BDED4 /* AppDelegate.swift */,
 				45A8D07123AA75D6006BDED4 /* SceneDelegate.swift */,
 				45A8D07323AA75D6006BDED4 /* ViewController.swift */,
+				45A8D09623AD2437006BDED4 /* ViewModel.swift */,
 				45A8D07523AA75D6006BDED4 /* Main.storyboard */,
 				45A8D07823AA75D9006BDED4 /* Assets.xcassets */,
 				45A8D07A23AA75D9006BDED4 /* LaunchScreen.storyboard */,
 				45A8D07D23AA75D9006BDED4 /* Info.plist */,
-				45A8D09623AD2437006BDED4 /* ViewModel.swift */,
 			);
 			path = "RxSwift-GCD";
 			sourceTree = "<group>";
