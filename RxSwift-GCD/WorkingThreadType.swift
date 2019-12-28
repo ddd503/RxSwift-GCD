@@ -17,6 +17,36 @@ enum WorkingThreadType: Int {
     case current
     case concurrentDispatch
 
+    var title: String {
+        switch self {
+        case .main:
+            return "MainScheduler.instance"
+        case .mainAsync:
+            return "MainScheduler.asyncInstance"
+        case .concurrentMain:
+            return "ConcurrentMainScheduler.instance"
+        case .current:
+            return "CurrentThreadScheduler.instance"
+        case .concurrentDispatch:
+            return "ConcurrentDispatchQueueScheduler(qos: .background)"
+        }
+    }
+
+    var description: String {
+        switch self {
+        case .main:
+            return "メインスレッドを保証（キューイングされているものがない場合、即時実行、observeOnに最適化）"
+        case .mainAsync:
+            return "メインスレッドを保証（必ずDispatchQueue.mainでディスパッチ）"
+        case .concurrentMain:
+            return "メインスレッドを保証（キューイングされているものがない場合、即時実行、subscribeOnに最適化のため今回は不使用）"
+        case .current:
+            return "実行スレッドを切り替えずに現在のスレッドで処理をキューイング(溜めて)して順次実行する"
+        case .concurrentDispatch:
+            return "処理をバックグラウンドで並列実行する（動作スレッドをqosやqueueで指定することが可能）"
+        }
+    }
+
     // ImmediateSchedulerTypeスレッド系の基盤プロトコル
     var thread: ImmediateSchedulerType {
         switch self {
