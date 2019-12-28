@@ -26,15 +26,9 @@ final class ViewModel: ViewModelType {
         let finishedLongAction: Driver<()>
     }
 
-    let main = MainScheduler.instance
-    let mainAsync = MainScheduler.asyncInstance
-    let concurrentMain = ConcurrentMainScheduler.instance
-    let concurrentDispatchDefault = ConcurrentDispatchQueueScheduler(qos: .default)
-    let concurrentDispatchBack = ConcurrentDispatchQueueScheduler(qos: .background)
-
     func injection(input: Input) -> Output {
         let finishedLongAction = input.mainTap
-            .observeOn(main)
+            .observeOn(MainScheduler.instance)
             .flatMap { (_) -> Observable<()> in
                 return self.longAction()
                     .catchErrorJustReturn(())
@@ -47,7 +41,7 @@ final class ViewModel: ViewModelType {
 
     // 時間のかかる処理のダミー
     func longAction() -> Observable<()> {
-        print("\(Thread.isMainThread)")
+        print("メインスレッドかどうか：\(Thread.isMainThread)")
         return Observable.just(())
     }
 }

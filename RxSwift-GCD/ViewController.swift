@@ -20,7 +20,8 @@ class ViewController: UIViewController {
 
         let viewModel = ViewModel().injection(input: ViewModel.Input(mainTap: button.rx.tap.asObservable()))
 
-        viewModel.finishedLongAction.drive(onNext: { _ in
+        viewModel.finishedLongAction
+            .drive(onNext: { _ in
             print("did tap")
         })
             .disposed(by: disposeBag)
