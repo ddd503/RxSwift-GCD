@@ -12,19 +12,20 @@ import RxCocoa
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak private var button: UIButton!
+    @IBOutlet weak private var mainButton: UIButton!
+    @IBOutlet weak private var mainAsyncButton: UIButton!
+    @IBOutlet weak private var concurrentMainButton: UIButton!
+    @IBOutlet weak private var currentButton: UIButton!
+    @IBOutlet weak private var concurrentDispatchButton: UIButton!
+
+    @IBOutlet weak private var sampleCadeLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+
     private var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let viewModel = ViewModel().injection(input: ViewModel.Input(mainTap: button.rx.tap.asObservable()))
-
-        viewModel.finishedLongAction
-            .drive(onNext: { _ in
-            print("did tap")
-        })
-            .disposed(by: disposeBag)
     }
 
 }

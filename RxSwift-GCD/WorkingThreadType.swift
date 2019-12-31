@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum WorkingThreadType: Int {
+enum WorkingThreadType: Int, CaseIterable {
     case main
     case mainAsync
     case concurrentMain
