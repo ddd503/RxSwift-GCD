@@ -10,14 +10,31 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum WorkingThreadType: Int, CaseIterable {
+enum WorkingThreadType {
     case main
     case mainAsync
     case concurrentMain
     case current
     case concurrentDispatch
 
-    var title: String {
+    // ImmediateSchedulerTypeスレッド系の基盤プロトコル
+    init?(scheduler: ImmediateSchedulerType) {
+        switch scheduler {
+        case is MainScheduler:
+            self = .main
+        case is SerialDispatchQueueScheduler:
+            self = .mainAsync
+        case is ConcurrentMainScheduler:
+            self = .concurrentMain
+        case is CurrentThreadScheduler:
+            self = .current
+        case is ConcurrentDispatchQueueScheduler:
+            self = .concurrentDispatch
+        default: return nil
+        }
+    }
+
+    var sampleCade: String {
         switch self {
         case .main:
             return "MainScheduler.instance"
@@ -35,36 +52,15 @@ enum WorkingThreadType: Int, CaseIterable {
     var description: String {
         switch self {
         case .main:
-            return "メインスレッドを保証（キューイングされているものがない場合、即時実行、observeOnに最適化）"
+            return "メインスレッドを保証\nキューイングされているものがない場合、即時実行、observeOnに最適化"
         case .mainAsync:
-            return "メインスレッドを保証（必ずDispatchQueue.mainでディスパッチ）"
+            return "メインスレッドを保証\n必ずDispatchQueue.mainでディスパッチ"
         case .concurrentMain:
-            return "メインスレッドを保証（キューイングされているものがない場合、即時実行、subscribeOnに最適化のため今回は不使用）"
+            return "メインスレッドを保証\nキューイングされているものがない場合、即時実行、subscribeOnに最適化"
         case .current:
             return "実行スレッドを切り替えずに現在のスレッドで処理をキューイング(溜めて)して順次実行する"
         case .concurrentDispatch:
-            return "処理をバックグラウンドで並列実行する（動作スレッドをqosやqueueで指定することが可能）"
-        }
-    }
-
-    // ImmediateSchedulerTypeスレッド系の基盤プロトコル
-    var thread: ImmediateSchedulerType {
-        switch self {
-        case .main:
-            // メインスレッドを保証（キューイングされているものがない場合、即時実行、observeOnに最適化）
-            return MainScheduler.instance
-        case .mainAsync:
-            // メインスレッドを保証（必ずDispatchQueue.mainでディスパッチ）
-            return MainScheduler.asyncInstance
-        case .concurrentMain:
-            // メインスレッドを保証（キューイングされているものがない場合、即時実行、subscribeOnに最適化のため今回は不使用）
-            return ConcurrentMainScheduler.instance
-        case .current:
-            // 実行スレッドを切り替えずに現在のスレッドで処理をキューイング(ためて)して順次実行する（割り込みの即時実行のImmediateSchedulerは廃止？？）
-            return CurrentThreadScheduler.instance
-        case .concurrentDispatch:
-            // 処理をバックグラウンドで並列実行する（動作スレッドをqosやqueueで指定することが可能）
-            return ConcurrentDispatchQueueScheduler(qos: .background)
+            return "処理をバックグラウンドで並列実行する\n動作スレッドをqosやqueueで指定することが可能"
         }
     }
 }
