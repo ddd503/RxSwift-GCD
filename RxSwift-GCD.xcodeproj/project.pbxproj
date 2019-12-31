@@ -106,15 +106,8 @@
 		45A8D06E23AA75D6006BDED4 /* RxSwift-GCD */ = {
 			isa = PBXGroup;
 			children = (
-				45A8D06F23AA75D6006BDED4 /* AppDelegate.swift */,
-				45A8D07123AA75D6006BDED4 /* SceneDelegate.swift */,
-				45A8D07323AA75D6006BDED4 /* ViewController.swift */,
-				45A8D09F23B7423F006BDED4 /* WorkingThreadType.swift */,
-				45A8D09623AD2437006BDED4 /* ViewModel.swift */,
-				45A8D07523AA75D6006BDED4 /* Main.storyboard */,
-				45A8D07823AA75D9006BDED4 /* Assets.xcassets */,
-				45A8D07A23AA75D9006BDED4 /* LaunchScreen.storyboard */,
-				45A8D07D23AA75D9006BDED4 /* Info.plist */,
+				45A8D0A223BBB826006BDED4 /* Sample */,
+				45A8D0A123BBB823006BDED4 /* Other */,
 			);
 			path = "RxSwift-GCD";
 			sourceTree = "<group>";
@@ -126,6 +119,29 @@
 				45A8D08823AA75D9006BDED4 /* Info.plist */,
 			);
 			path = "RxSwift-GCDTests";
+			sourceTree = "<group>";
+		};
+		45A8D0A123BBB823006BDED4 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				45A8D06F23AA75D6006BDED4 /* AppDelegate.swift */,
+				45A8D07123AA75D6006BDED4 /* SceneDelegate.swift */,
+				45A8D07823AA75D9006BDED4 /* Assets.xcassets */,
+				45A8D07A23AA75D9006BDED4 /* LaunchScreen.storyboard */,
+				45A8D07D23AA75D9006BDED4 /* Info.plist */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		45A8D0A223BBB826006BDED4 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				45A8D07323AA75D6006BDED4 /* ViewController.swift */,
+				45A8D09F23B7423F006BDED4 /* WorkingThreadType.swift */,
+				45A8D09623AD2437006BDED4 /* ViewModel.swift */,
+				45A8D07523AA75D6006BDED4 /* Main.storyboard */,
+			);
+			path = Sample;
 			sourceTree = "<group>";
 		};
 		F049FE193042F69CED6C7255 /* Frameworks */ = {
@@ -490,7 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
-				INFOPLIST_FILE = "RxSwift-GCD/Info.plist";
+				INFOPLIST_FILE = "RxSwift-GCD/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,7 +525,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
-				INFOPLIST_FILE = "RxSwift-GCD/Info.plist";
+				INFOPLIST_FILE = "RxSwift-GCD/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
